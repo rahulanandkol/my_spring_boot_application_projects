@@ -1,0 +1,5 @@
+com\manage\student\bean\Student.class
+com\manage\student\controller\StudentController.class
+com\manage\student\StudentManagementApplication.class
+com\manage\student\repository\StudentRepository.class
+com\manage\student\service\StudentService.class

@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.test.application</groupId>
+	<artifactId>01_student-management-app</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>student-management-app</name>
+	<description>an application to manage student details</description>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.13.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	<dependencies>
+		<!-- It adds total 34 dependencies related to web projects -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- This devtools dependency insures that any classpath file changes will 
+			automatically trigger an application restart(from spring 1.3 onwards). It 
+			includes an embedded LiveReload server. LiveReload is a simple protocol that 
+			allows your application to automatically trigger a browser refresh whenever 
+			things change. Browser extensions are freely available for Chrome, Firefox 
+			and Safari from livereload.com which must be added and enabled -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- The lombok dependency is added to remove the compulsion of writing 
+			boiler plate codes like getters , setters , constructors etc -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.apache.derby</groupId> <artifactId>derby</artifactId> 
+			<scope>runtime</scope> </dependency> -->
+
+		<!-- starting with version 8.0.31, MySQL Connector/J artifacts can be found 
+			under the maven repository directory /com/mysql/mysql-connector-j, with group 
+			ID com.mysql and artifact ID mysql-connector-j For a very long time MySQL 
+			Connector/J has been published under the Maven coordinates group ID 'mysql' 
+			and artifact ID 'mysql-connector-java' -->
+
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>8.0.32</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- springfox-swagger2 and springfox-swagger-ui - These 2 dependencies 
+			needs to be added to pom and also @EnableSwagger2 annotation needs to be 
+			added in the application.java class to configure swagger ui . Once the application 
+			is restarted after doing the above changes the swagger ui with all the api 
+			details can be seen at the url http://localhost:8080/swagger-ui.html -->
+
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+	</dependencies>
+
+	<!--The plugin can create executable archives (jar files and war files) 
+		that contain all of an application’s dependencies and can then be run with 
+		java -jar Packaging an executable archive is performed by the repackage goal 
+		<executions> <execution> <goals> <goal>repackage</goal> </goals> </execution> 
+		</executions> such execution is already pre-configured with a repackage execution 
+		ID so that only the plugin definition should be added. -->
+
+	<!-- If we donot use maven plugin then while maven built a jar is created 
+		with just the application class names and pom.properties and pom.xml files 
+		along with Manifest.MF file. while if we use maven plugin then while building 
+		application creates files - jar1.jar.original jar1.jar jar1.jar.original 
+		is just like a backup jar which has all the java classes and pom files and 
+		no dependency jars. jar1.jar in this case will contain all the required dependencies 
+		to make it an executable jar -->
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>
