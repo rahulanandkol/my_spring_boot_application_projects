@@ -1,7 +1,11 @@
-package com.manage.student.controller;
+ package com.manage.student.controller;
 
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,21 +15,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.manage.student.bean.Student;
 import com.manage.student.service.StudentService;
 
 @RestController
 @RequestMapping("/student_management_app/")
 public class StudentController {
+	
 
 	/*
 	 * Mappings are case sensitive so "/Hello" is not same as "/hello"
+	 * 
+	 * @Value annotation is used to get the value of a variable in property file to a java variable
+	 * 
+	 * 
 	 */
+	
+	@Value("${app.name}")
+	private String appName;
+	
+	@Value("${app.version}")
+	private String appVersion;	
+	
+	
 	@Autowired
 	StudentService studentService;
 	
+	@GetMapping("/get_app_detail")
+	private String getAppDetail() {
+		return "Application Name : "+appName + " Application Version : "+appVersion;
+	}
+	
 	@PostMapping("/save_student_detail")
-	public Student saveStudentDetail(@RequestBody Student student) {
+	public Student saveStudentDetail(@Valid @RequestBody Student student) {
 		return studentService.saveStudentDetail(student);
 	}	
 	

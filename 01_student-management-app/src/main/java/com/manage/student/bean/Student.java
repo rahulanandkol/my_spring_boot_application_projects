@@ -22,7 +22,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
@@ -42,11 +41,11 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name = "tab_student_detail")
 public class Student {
+	
 	@Id
 	@Column(name = "student_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -60,10 +59,10 @@ public class Student {
 	@NotEmpty
 	@Column(name = "student_email") 
 	@JsonProperty("semail")
-	@Email
+	@Email(message="{email.validation.message}")
 	String email;
 
-	@NotNull
+	@NotNull(message="{phone.validation.message}")
 	@Column(name = "student_contact_no")
 	@JsonProperty("sphone")
 	BigInteger phoneNo;
