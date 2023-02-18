@@ -1,4 +1,4 @@
- package com.manage.student.controller;
+ package com.manage.school.student.controller;
 
 import java.util.List;
 
@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.manage.student.bean.Student;
-import com.manage.student.service.StudentService;
+import com.manage.school.student.bean.Student;
+import com.manage.school.student.service.StudentService;
 
 @RestController
-@RequestMapping("/student_management_app/")
+@RequestMapping("/school_management_app/")
 public class StudentController {
 	
 
@@ -67,6 +67,11 @@ public class StudentController {
 		studentService.deleteStudent(id);
 	}
 	
+	@DeleteMapping("/delete_all_student")
+	public void deleteAllStudents() {
+		studentService.deleteAllStudent();
+	}
+	
 	@PutMapping("/update_student_detail")
 	public Student updateStudentDetail(@RequestBody Student student) {
 		return studentService.updateStudent(student);
@@ -100,14 +105,5 @@ public class StudentController {
 	@DeleteMapping("/delete_student_detail_by_name")
 	public String deleteStudentByName(@RequestParam String name) {
 		return studentService.deleteStudentByName(name)+" records deleted.";
-	}
-	
-	@GetMapping("/get_student_detail_native")
-	public List<Student> getStudents() {
-		return studentService.getAllStudents();
-	}
-	
-	 
-	
-	
+	}	
 }

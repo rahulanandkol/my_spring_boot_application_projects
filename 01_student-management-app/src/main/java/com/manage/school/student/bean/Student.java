@@ -1,4 +1,4 @@
-package com.manage.student.bean;
+package com.manage.school.student.bean;
 
 import java.math.BigInteger;
 import java.util.Date;
@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
@@ -41,6 +42,7 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name = "tab_student_detail")

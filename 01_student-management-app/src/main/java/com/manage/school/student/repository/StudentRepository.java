@@ -1,4 +1,4 @@
-package com.manage.student.repository;
+package com.manage.school.student.repository;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.manage.student.bean.Student;
+import com.manage.school.student.bean.Student;
 
 @Repository
 public interface StudentRepository extends CrudRepository<Student,Integer> {

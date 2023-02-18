@@ -1,4 +1,4 @@
-package com.manage.student.service;
+package com.manage.school.student.service;
 
 import java.util.List;
 
@@ -15,8 +15,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.manage.student.bean.Student;
-import com.manage.student.repository.StudentRepository;
+
+import com.manage.school.student.bean.Student;
+import com.manage.school.student.repository.StudentRepository;
 
 @Service
 public class StudentService {
@@ -38,6 +39,10 @@ public class StudentService {
 	public void deleteStudent(Integer id){
 		studentRepo.deleteById(id);
 	}	
+	
+	public void deleteAllStudent(){
+		studentRepo.deleteAll();
+	}
 	
 	public Student updateStudent(Student student) {
 		return studentRepo.save(student);
