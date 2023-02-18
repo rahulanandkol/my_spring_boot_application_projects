@@ -30,8 +30,7 @@ public class StudentController {
 	 * @Value annotation is used to get the value of a variable in property file to a java variable
 	 * 
 	 * 
-	 */
-	
+	 */	 
 	@Value("${app.name}")
 	private String appName;
 	
@@ -42,11 +41,17 @@ public class StudentController {
 	@Autowired
 	StudentService studentService;
 	
+	/*
+	 * This method demonstrates how can we use the properties of properties file and map them to a java object using @Value annotation
+	 */
 	@GetMapping("/get_app_detail")
 	private String getAppDetail() {
 		return "Application Name : "+appName + " Application Version : "+appVersion;
 	}
 	
+	/*
+	 * Next 6 methods demostrates the basic crud operations using the in built methods of crud repository
+	 */
 	@PostMapping("/save_student_detail")
 	public Student saveStudentDetail(@Valid @RequestBody Student student) {
 		return studentService.saveStudentDetail(student);
@@ -75,8 +80,12 @@ public class StudentController {
 	@PutMapping("/update_student_detail")
 	public Student updateStudentDetail(@RequestBody Student student) {
 		return studentService.updateStudent(student);
-	}
+	}	
 	
+	
+	/*
+	 * Next 4 methods demonstrates the usage of the finder methods of the repositories to get the data based on condition
+	 */
 	@GetMapping("/get_student_detail_by_name")
 	public List<Student> getStudentsDetail(@RequestParam("sname") String name) {
 		return studentService.getStudentsByName(name);
@@ -97,13 +106,29 @@ public class StudentController {
 		return studentService.findByNameToken(namePattern);
 	}
 	
+	
+	
+	/*
+	 * This method demonstrates the usage of the JPA Query for a read operation
+	 */
 	@GetMapping("/get_student_detail_by_name_and_guide")
 	public List<Student> getStudentsByNameAndGuide(@RequestParam String name, @RequestParam String guide) {
 		return studentService.getStudentDetailByNameAndGuide(name, guide);
 	}
 	
+	/*
+	 * This method demonstrates the usage of the JPA Query for a write operation
+	 */
 	@DeleteMapping("/delete_student_detail_by_name")
 	public String deleteStudentByName(@RequestParam String name) {
 		return studentService.deleteStudentByName(name)+" records deleted.";
 	}	
+	
+	/*
+	 * This method demonstrates the usage of native query with JPA
+	 */
+	@GetMapping("/get_all_student_detail_native")
+	public List<Student> getAllDetailsNative(){
+		return studentService.getAllStudentDetail();
+	}
 }
