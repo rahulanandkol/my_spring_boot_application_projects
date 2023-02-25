@@ -1,4 +1,4 @@
- package com.manage.school.student.controller;
+ package com.manage.school.controller;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.manage.school.student.bean.Student;
-import com.manage.school.student.service.StudentService;
+import com.manage.school.bean.Student;
+import com.manage.school.service.StudentService;
 
 @RestController
 @RequestMapping("/school_management_app/")

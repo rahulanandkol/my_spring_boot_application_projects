@@ -1,4 +1,4 @@
-package com.manage.school.student.repository;
+package com.manage.school.repository;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.manage.school.student.bean.Student;
+import com.manage.school.bean.Student;
 
 @Repository
 public interface StudentRepository extends CrudRepository<Student,Integer> {
@@ -26,7 +26,7 @@ public interface StudentRepository extends CrudRepository<Student,Integer> {
 	
 	@Transactional
 	@Modifying
-	@Query("Delete from Student where name = :sname")
+	@Query("Delete from Student where name = :sname") 
 	Integer deleteStudentByName(@Param("sname") String name);
 	
 	@Query(value="select * from tab_student_detail", nativeQuery = true)

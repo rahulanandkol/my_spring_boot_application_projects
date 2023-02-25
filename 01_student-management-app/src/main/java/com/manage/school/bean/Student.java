@@ -1,4 +1,4 @@
-package com.manage.school.student.bean;
+package com.manage.school.bean;
 
 import java.math.BigInteger;
 import java.util.Date;

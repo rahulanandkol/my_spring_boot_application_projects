@@ -1,5 +1,10 @@
-com\manage\student\bean\Student.class
-com\manage\student\controller\StudentController.class
-com\manage\student\StudentManagementApplication.class
-com\manage\student\repository\StudentRepository.class
-com\manage\student\service\StudentService.class
+com\manage\school\teacher\repository\TeacherRepository.class
+com\manage\school\student\repository\StudentRepository.class
+com\manage\school\student\service\StudentService.class
+com\manage\school\teacher\bean\Teacher.class
+com\manage\school\exception\GlobalExceptionHandler.class
+com\manage\school\StudentManagementApplication.class
+com\manage\school\student\controller\StudentController.class
+com\manage\school\teacher\service\TeacherService.class
+com\manage\school\teacher\controller\TeacherController.class
+com\manage\school\student\bean\Student.class

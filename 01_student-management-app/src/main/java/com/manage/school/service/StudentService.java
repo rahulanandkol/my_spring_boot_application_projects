@@ -1,4 +1,4 @@
-package com.manage.school.student.service;
+package com.manage.school.service;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.manage.school.student.bean.Student;
-import com.manage.school.student.repository.StudentRepository;
+import com.manage.school.bean.Student;
+import com.manage.school.repository.StudentRepository;
 
 @Service
 public class StudentService {
